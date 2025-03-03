@@ -5,8 +5,11 @@ import { FaInstagram } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { CartContext } from '../Context/CartProvider/CartProvider';
 import {useContext} from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Navigation = () => {
+  const { user, logout, isAuthenticated } = useAuth0();
   const { state } = useContext(CartContext)
   // console.log(state.cartItem);
 
@@ -39,10 +42,28 @@ const Navigation = () => {
       </div>
       </div>
      
-     
-      <div className='pl-15 space-x-4'>
+      <div className='pl-15 flex space-x-4'>
       <NavLink to="/Contact"> <button className='border h-[40px] w-[120px] rounded-[50px] bg-orange-400 hover:bg-orange-600 text-white'>Contact Us</button></NavLink>
-     <NavLink to="/Login" className='hover:text-yellow-400 text-gray-500'>Login</NavLink>
+      {isAuthenticated ? (
+          <NavLink to="/profile">
+            <img className="rounded-full h-10 " src={user.picture} alt="" />
+          </NavLink>
+        ) : (
+          <FaRegUserCircle size={30} color="green" />
+        )}
+       
+       {isAuthenticated ? (
+          <button
+            onClick={() => {
+              logout();
+            }}
+            className=" bg-orange-500 p-2  text-white rounded-2xl "
+          >
+            Logout
+          </button>
+        ) : (
+          <NavLink to="/Login" className='hover:text-yellow-400 text-gray-500'>Login</NavLink>
+        )}
       </div>
     
     </div>
