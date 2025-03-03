@@ -16,8 +16,9 @@ const Payment = () => {
     var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
     console.log(transaction_uuid)
     return (
-        <div>
+        <div className="flex justify-center mt-[50px]">
             <form
+                 className="flex flex-col justify-center items-center p-4 shadow-2xl shadow-gray-600 h-62 w-62 rounded-2xl space-y-6"
                 action="https://rc-epay.esewa.com.np/api/epay/main/v2/form"
                 method="POST">
                 <input

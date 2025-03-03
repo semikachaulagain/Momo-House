@@ -12,6 +12,7 @@ import Success from "./PaymentSystem/Success"
 import Failure from "./PaymentSystem/Failure"
 import Payment from "./PaymentSystem/Payment"
 import CartPage from "./Pages/CartPage"
+import Profile from './Pages/Profile'
 
  const App = () => {
    return (
@@ -30,6 +31,7 @@ import CartPage from "./Pages/CartPage"
        <Route path="/Failure" element={<Failure/>}/>
        <Route path="/Payment" element={<Payment/>}/>
        <Route path="/CartPage" element={<CartPage/>}/>
+       <Route path='/Profile' element={<Profile />} />
        </Routes>
      </div>
    )

@@ -4,6 +4,14 @@ import onebg from '../assets/Home/onebg.png'
 import man from '../assets/Home/man.png'
 import semicircle from '../assets/Home/semicircle.png'
 import plate from '../assets/Home/plate.png'
+import { NavLink } from 'react-router-dom'
+import momologo from "../assets/Home/momologo.png";
+import {FaFacebook} from "react-icons/fa";
+import { IoLogoYoutube } from 'react-icons/io';
+import { AiFillTikTok } from 'react-icons/ai';
+import { FaSquareTwitter } from 'react-icons/fa6';
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram} from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -17,10 +25,11 @@ const Home = () => {
             </h2>
             <p className='font-bold text-[50px]'>Momo <span className='text-orange-600'>Restaurant</span></p>
             <p className="mt-4 text-gray-600">More than <span className="font-semibold text-orange-500">20+</span> varieties of momo available for you.</p>
+           <NavLink to = "/Menu"> 
             <button className='flex justify-center items-center border h-[55px] w-[220px] rounded-[50px] bg-teal-900 text-white hover:bg-teal-950 mt-[40px]' >
             Explore Food Menu
             <HiMiniArrowLongRight className='mt-[5px] ml-[5px] text-2xl' />
-          </button>
+          </button></NavLink>
         </div>
         
         <div className='flex'>
@@ -67,6 +76,45 @@ const Home = () => {
       <button className='flex justify-center items-center border h-[55px] w-[220px] rounded-[50px] bg-teal-900 text-white hover:bg-teal-950 mt-[40px]' >Explore Our Story <HiMiniArrowLongRight className='mt-[5px] ml-[5px] text-2xl' /></button>
       </div>
 
+        <div className='mt-[40px] h-[400px] bg-gray-100 p-[50px]'>
+              <div className=' flex justify-between items-center w-[1128px] h-[200px]'>
+                <div className='w-[408px] h-[192px]'>
+                  <img src={momologo} alt="" className='w-[152px] h-[48px]' />
+                  <p className='text-gray-500'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Cupiditate nisi iusto unde quis quibusdam impedit ex facilis doloremque quaerat laudantium.</p>
+                </div>
+                <div className='w-[168px] h-[158px] flex flex-col justify-center'>
+                  <h1 className='text-[25px] text-teal-700'>Momos</h1>
+                  <NavLink to = "/About"> <h3>About Us</h3></NavLink>
+                  <NavLink to = "/Menu"> <h3>Our Menu</h3></NavLink>
+                  <NavLink to = "/Service"><h3>Our Services</h3></NavLink>  
+                  <NavLink to = "/Contact"><h3>Contact Us</h3></NavLink>
+                </div>
+                <div className='w-[168px] h-[158px] flex flex-col items-start'>
+                  <h1 className='text-[25px] text-teal-700'>Legals</h1>
+                  <h3>Terms & Conditions</h3>
+                  <h3>Privacy Policy</h3>
+                  <h3>Supports</h3>
+                </div>
+                <div className='w-[168px] h-[158px] space-y-2' >
+                  <h1 className='text-[25px] text-teal-700'>Follow Us</h1>
+                  <div className='flex gap-3'>
+                    <FaFacebook className='h-[35px] w-[35px] text-gray-500' />
+                    <FaLinkedin className='h-[35px] w-[35px] text-gray-500' />
+                    <FaSquareTwitter className='h-[35px] w-[35px] text-gray-500' />
+                  </div>
+                  <div className='flex gap-3'>
+                    <IoLogoYoutube className='h-[35px] w-[35px] text-gray-500' />
+                    <FaInstagram className='h-[35px] w-[35px] text-gray-500' />
+                    <AiFillTikTok className='h-[35px] w-[35px] text-gray-500' />
+                  </div>
+                </div>
+              </div>
+              <div className='border-b-1 border-gray-500 mt-[50px]'></div>
+              <div>
+                <h1 className='text-gray-500 flex justify-center mt-[30px]'>Copyright ©2025 Everest Momo Pvt Ltd. All Rights Reserved.</h1>
+              </div>
+              </div>
      </div> 
     </div>
   )

@@ -81,7 +81,8 @@ const Service = () => {
       <div className='h-[300px] w-[1070px] bg-gray-100 flex flex-col justify-center items-center mt-[20px] ml-[110px] rounded-[24px]'>
         <h1 className='text-[31px] font-bold'>Got any Queries?</h1>
         <p className='text-[16px] text-gray-500 mt-[10px]'>If you have any queries, send us a message. Our Friendly team would love to hear from you</p>
-        <button className='h-[60px] w-[220px] rounded-[100px] bg-teal-700 text-white text-[16px] mt-[40px] hover:bg-teal-900'>Get In Touch</button>
+        <NavLink to = "/Contact">
+        <button className='h-[60px] w-[220px] rounded-[100px] bg-teal-700 text-white text-[16px] mt-[40px] hover:bg-teal-900'>Get In Touch</button></NavLink>
       </div>
 
       <div className='mt-[40px] h-[400px] bg-gray-100 p-[50px]'>
@@ -93,10 +94,10 @@ const Service = () => {
           </div>
           <div className='w-[168px] h-[158px] flex flex-col justify-center'>
             <h1 className='text-[25px] text-teal-700'>Momos</h1>
-            <h3>About Us</h3>
-            <h3>Our Menu</h3>
-            <h3>Our Services</h3>
-            <h3>Contact Us</h3>
+            <NavLink to = "/About"> <h3>About Us</h3></NavLink>
+            <NavLink to = "/Menu"> <h3>Our Menu</h3></NavLink>
+            <NavLink to = "/Service"><h3>Our Services</h3></NavLink>  
+            <NavLink to = "/Contact"><h3>Contact Us</h3></NavLink>
           </div>
           <div className='w-[168px] h-[158px] flex flex-col items-start'>
             <h1 className='text-[25px] text-teal-700'>Legals</h1>

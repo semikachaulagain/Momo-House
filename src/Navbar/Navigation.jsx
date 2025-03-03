@@ -34,7 +34,7 @@ const Navigation = () => {
        </div>
       
       
-      <div className='flex  ml-[180px] space-x-[20px]'>
+      <div className='flex  ml-[150px] space-x-[20px]'>
           <div className='flex space-x-[20px] mt-[8px]'>
         <NavLink to='https://www.facebook.com/' target="_blank">{""}<FaFacebook className='text-gray-400 h-[30px] w-[30px] hover:text-blue-700'/>{""}</NavLink>
         <NavLink to='https://www.instagram.com/'  target="_blank">{""}<FaInstagram className='text-gray-400 h-[30px] w-[30px] hover:text-pink-400'/>{""}</NavLink>
@@ -45,11 +45,11 @@ const Navigation = () => {
       <div className='pl-15 flex space-x-4'>
       <NavLink to="/Contact"> <button className='border h-[40px] w-[120px] rounded-[50px] bg-orange-400 hover:bg-orange-600 text-white'>Contact Us</button></NavLink>
       {isAuthenticated ? (
-          <NavLink to="/profile">
-            <img className="rounded-full h-10 " src={user.picture} alt="" />
+          <NavLink to="/Profile">
+            <img className="rounded-full h-10" src={user.picture} alt="" />
           </NavLink>
         ) : (
-          <FaRegUserCircle size={30} color="green" />
+          <FaRegUserCircle size={30} color="green" className="mt-1.5" />
         )}
        
        {isAuthenticated ? (
@@ -62,7 +62,7 @@ const Navigation = () => {
             Logout
           </button>
         ) : (
-          <NavLink to="/Login" className='hover:text-yellow-400 text-gray-500'>Login</NavLink>
+          <NavLink to="/Login" className='hover:text-yellow-400 mt-1.5 text-gray-500'>Login</NavLink>
         )}
       </div>
     

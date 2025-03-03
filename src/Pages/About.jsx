@@ -143,10 +143,10 @@ const About = () => {
           </div>
           <div className='w-[168px] h-[158px] flex flex-col justify-center'>
             <h1 className='text-[25px] text-teal-700'>Momos</h1>
-            <h3>About Us</h3>
-            <h3>Our Menu</h3>
-            <h3>Our Services</h3>
-            <h3>Contact Us</h3>
+            <NavLink to = "/About"> <h3>About Us</h3></NavLink>
+            <NavLink to = "/Menu"> <h3>Our Menu</h3></NavLink>
+            <NavLink to = "/Service"><h3>Our Services</h3></NavLink>  
+            <NavLink to = "/Contact"><h3>Contact Us</h3></NavLink>
           </div>
           <div className='w-[168px] h-[158px] flex flex-col items-start'>
             <h1 className='text-[25px] text-teal-700'>Legals</h1>
