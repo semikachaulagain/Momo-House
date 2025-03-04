@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState , useEffect } from 'react'
 import { HiMiniArrowLongRight } from 'react-icons/hi2'
 import onebg from '../assets/Home/onebg.png'
 import man from '../assets/Home/man.png'
@@ -14,6 +14,28 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram} from "react-icons/fa";
 
 const Home = () => {
+  const [product,setProduct]=useState([]);
+  const [filterItems, setfilterItems] = useState([]);
+    const getData = async()=>{
+     let response = await fetch(`https://dummyjson.com/recipes`);
+     response = await response.json();
+     setProduct(response.recipes)
+     filterProduct("American");
+    };
+
+    const filterProduct = (country) => {
+      console.log(product)
+      const products= product.filter((item)=>{
+        return item.cuisine == country;
+      });
+
+      console.log(products)
+      setfilterItems(products);
+    };
+
+    useEffect(()=>{
+      getData();
+    },[])
   return (
     <div>
     <div className='h-190'>
@@ -63,18 +85,52 @@ const Home = () => {
         </div>
       
       <div className='mt-10 flex justify-center items-center space-x-4'>
-      <button className='border h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>Buff</button>
-      <button className='border border-gray-300 h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>Chicken</button>
-      <button className='border border-gray-300 h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>Veg</button>
+      <button
+      onClick={()=>{
+        filterProduct("American");
+       }} 
+       className='border h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>
+        American</button>
+      <button 
+      onClick={()=>{
+        filterProduct("Italian");
+       }} 
+      className='border border-gray-300 h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>
+      Italian</button>
+      <button 
+      onClick={()=>{
+        filterProduct("Asian");
+       }} 
+      className='border border-gray-300 h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>
+      Asian</button>
+      <button 
+      onClick={()=>{
+        filterProduct("Pakistani");
+       }} 
+      className='border border-gray-300 h-10 w-25 rounded-2xl bg-white hover:bg-gray-200 text-black'>
+      Pakistani</button>
       </div>
       
       <div>
+      {filterItems.length > 0 ? (
+         <div className='flex gap-5 flex-wrap justify-center'>
+          {filterItems.map((item)=>{
+            return (
+              <div key={item.id} className='shadow-2xl m-5 w-72 py-3 shadow-gray-500 rounded-2xl flex flex-col justify-center items-center'>
+                <img className="h-30" src={item.image} alt=""/>
+                <h1>Cuisine type : {item.cuisine}</h1>
+                <h1>Name : {item.name}</h1>
+              </div>
+            )
+          })}
+      </div>): (<div>Loading...</div>)}
+      </div>
       
-      </div>
-
+      <NavLink to = "/Menu">
       <div className='flex justify-center items-center'>
-      <button className='flex justify-center items-center border h-[55px] w-[220px] rounded-[50px] bg-teal-900 text-white hover:bg-teal-950 mt-[40px]' >Explore Our Story <HiMiniArrowLongRight className='mt-[5px] ml-[5px] text-2xl' /></button>
+      <button className='flex justify-center items-center border h-[55px] w-[220px] rounded-[50px] bg-teal-900 text-white hover:bg-teal-950 mt-[40px]' >Explore Our Menu <HiMiniArrowLongRight className='mt-[5px] ml-[5px] text-2xl' /></button>
       </div>
+      </NavLink>
 
         <div className='mt-[40px] h-[400px] bg-gray-100 p-[50px]'>
               <div className=' flex justify-between items-center w-[1128px] h-[200px]'>

@@ -5,8 +5,10 @@ import { useState } from 'react'
 import { FaStar } from "react-icons/fa6";
 import { CartContext } from "../Context/CartProvider/CartProvider";
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProductDescription = () => {
+  const navigate = useNavigate()
   const { state, dispatch } = useContext(CartContext)
     const {id} = useParams();
     
@@ -42,7 +44,10 @@ const ProductDescription = () => {
           <p className="text-[20px]">Cuisine: {product.cuisine}</p>
           <p  className="text-[20px] flex gap-2">Rating: {product.rating}<FaStar className="mt-[5px] text-amber-500" /></p>
           <h1 className="text-[20px] text-orange-400 font-bold">Rs. {product.caloriesPerServing} /-</h1>
-          <button className="bg-sky-600   p-3 m-2 text-white hover:bg-sky-700 rounded-[6px]">
+          <button  onClick={() => {
+                  navigate("/payment", { state: { totalAmount: product.caloriesPerServing, totalItem: 1 } })
+                }}
+          className="bg-sky-600   p-3 m-2 text-white hover:bg-sky-700 rounded-[6px]">
                                     Buy Now{" "}
                                 </button>
                                 <button
