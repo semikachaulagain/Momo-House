@@ -142,7 +142,7 @@ const About = () => {
               Cupiditate nisi iusto unde quis quibusdam impedit ex facilis doloremque quaerat laudantium.</p>
           </div>
           <div className='w-[168px] h-[158px] flex flex-col justify-center'>
-            <h1 className='text-[25px] text-teal-700'>Momos</h1>
+            <NavLink to = "/"><h1 className='text-[25px] text-teal-700'>Momos</h1></NavLink>
             <NavLink to = "/About"> <h3>About Us</h3></NavLink>
             <NavLink to = "/Menu"> <h3>Our Menu</h3></NavLink>
             <NavLink to = "/Service"><h3>Our Services</h3></NavLink>  
